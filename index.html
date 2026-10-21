@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080612">
-  <meta name="description" content="Computer Engineering student portfolio featuring AuraGuard AI and E-Barangay projects.">
+  <meta name="description" content="Marc Lawrence Castañeda — Computer Engineering student portfolio.">
   <title>Marc Lawrence | Mystic Engineer</title>
 
   <style>
@@ -20,9 +20,9 @@
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
@@ -42,29 +42,22 @@
       text-decoration: none;
     }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .stars {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      opacity: 0.65;
+      opacity: 0.6;
       background-image:
         radial-gradient(2px 2px at 20% 30%, white 50%, transparent),
         radial-gradient(1px 1px at 70% 20%, #d5b7ff 50%, transparent),
         radial-gradient(2px 2px at 80% 70%, #ffb46c 50%, transparent),
-        radial-gradient(1px 1px at 30% 80%, white 50%, transparent),
-        radial-gradient(1px 1px at 55% 55%, white 50%, transparent);
-      background-size: 230px 230px, 310px 310px,
-                       270px 270px, 350px 350px, 190px 190px;
-      animation: starDrift 35s linear infinite;
+        radial-gradient(1px 1px at 30% 80%, white 50%, transparent);
+      background-size: 230px 230px, 310px 310px, 270px 270px, 350px 350px;
+      animation: drift 35s linear infinite;
     }
 
-    @keyframes starDrift {
-      from { transform: translateY(0); }
+    @keyframes drift {
       to { transform: translateY(-120px); }
     }
 
@@ -77,7 +70,7 @@
       align-items: center;
       gap: 20px;
       padding: 16px 8%;
-      background: rgba(8, 6, 18, 0.88);
+      background: #080612e8;
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(16px);
     }
@@ -88,26 +81,21 @@
       letter-spacing: 1px;
     }
 
-    .logo span {
-      color: var(--orange);
-    }
+    .logo span { color: var(--orange); }
 
     .nav-links {
       display: flex;
       gap: 25px;
       list-style: none;
-      align-items: center;
     }
 
     .nav-links a {
       color: var(--muted);
       font-size: 0.9rem;
-      transition: color 0.25s;
+      transition: color 0.2s;
     }
 
-    .nav-links a:hover {
-      color: var(--orange);
-    }
+    .nav-links a:hover { color: var(--orange); }
 
     .menu-toggle {
       display: none;
@@ -122,7 +110,7 @@
 
     .hero {
       min-height: 88vh;
-      padding: 90px 8% 80px;
+      padding: 90px 8%;
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 50px;
@@ -200,15 +188,14 @@
       box-shadow: 0 0 24px #ff9d4224;
     }
 
-    .btn-secondary {
-      background: #ffffff08;
-    }
+    .btn-secondary { background: #ffffff08; }
 
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 0 25px #ad6cff35;
     }
 
+    /* Mystical portal animation */
     .portal-wrap {
       display: flex;
       justify-content: center;
@@ -235,9 +222,10 @@
       border-left-color: transparent;
       border-right-color: #ffb45c;
       border-radius: 50%;
-      filter: drop-shadow(0 0 8px #ff8a24)
-              drop-shadow(0 0 24px #ff8a2466);
-      animation: portalSpin 9s linear infinite;
+      filter:
+        drop-shadow(0 0 8px #ff8a24)
+        drop-shadow(0 0 24px #ff8a2466);
+      animation: spin 9s linear infinite;
     }
 
     .portal::after {
@@ -245,8 +233,9 @@
       border-color: var(--purple);
       border-top-color: transparent;
       border-bottom-color: #f4d2ff;
-      filter: drop-shadow(0 0 8px #a66cff)
-              drop-shadow(0 0 25px #a66cff66);
+      filter:
+        drop-shadow(0 0 8px #a66cff)
+        drop-shadow(0 0 25px #a66cff66);
       animation-direction: reverse;
       animation-duration: 7s;
     }
@@ -264,18 +253,16 @@
       font-size: clamp(3rem, 8vw, 5rem);
     }
 
-    @keyframes portalSpin {
+    @keyframes spin {
       to { transform: rotate(360deg); }
     }
 
     section {
-      padding: 85px 8%;
+      padding: 82px 8%;
       scroll-margin-top: 75px;
     }
 
-    .section-heading {
-      margin-bottom: 36px;
-    }
+    .section-heading { margin-bottom: 36px; }
 
     .section-heading small {
       color: var(--orange);
@@ -315,18 +302,14 @@
       font-size: 1.2rem;
     }
 
-    .panel p {
-      color: var(--muted);
-    }
+    .panel p { color: var(--muted); }
 
     .fact {
       padding: 13px 0;
       border-bottom: 1px solid #ffffff12;
     }
 
-    .fact:last-child {
-      border-bottom: none;
-    }
+    .fact:last-child { border-bottom: none; }
 
     .fact strong {
       display: block;
@@ -336,9 +319,7 @@
       letter-spacing: 1px;
     }
 
-    .fact span {
-      color: var(--muted);
-    }
+    .fact span { color: var(--muted); }
 
     .skills-grid {
       display: grid;
@@ -361,14 +342,10 @@
       box-shadow: 0 0 25px #a66cff18;
     }
 
-    .skill .symbol {
+    .symbol {
       display: block;
       font-size: 1.8rem;
       margin-bottom: 8px;
-    }
-
-    .skill strong {
-      font-size: 0.95rem;
     }
 
     .skill p {
@@ -384,8 +361,6 @@
     }
 
     .project {
-      overflow: hidden;
-      position: relative;
       transition: transform 0.3s, border-color 0.3s;
     }
 
@@ -414,7 +389,7 @@
         linear-gradient(135deg, #351c20, #100d20);
     }
 
-    .project-art span {
+    .project-art > span {
       font-size: 4rem;
       filter: drop-shadow(0 0 18px #b57cff99);
     }
@@ -460,10 +435,6 @@
       font-size: 0.9rem;
     }
 
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
     .journey {
       border-left: 2px solid #a66cff66;
       margin-left: 9px;
@@ -474,6 +445,8 @@
       position: relative;
       margin-bottom: 26px;
     }
+
+    .journey-item:last-child { margin-bottom: 0; }
 
     .journey-item::before {
       content: "";
@@ -487,13 +460,8 @@
       box-shadow: 0 0 14px #ff9d42;
     }
 
-    .journey-item h3 {
-      font-size: 1.1rem;
-    }
-
-    .journey-item p {
-      color: var(--muted);
-    }
+    .journey-item h3 { font-size: 1.1rem; }
+    .journey-item p { color: var(--muted); }
 
     .contact-panel {
       text-align: center;
@@ -513,6 +481,13 @@
     .contact-panel p {
       color: var(--muted);
       margin-bottom: 24px;
+    }
+
+    .contact-email {
+      display: block;
+      color: #e6d3ff;
+      margin: 0 0 22px;
+      overflow-wrap: anywhere;
     }
 
     footer {
@@ -538,7 +513,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
@@ -563,36 +540,22 @@
         margin-right: auto;
       }
 
-      .hero-buttons {
-        justify-content: center;
-      }
+      .hero-buttons { justify-content: center; }
 
       .portal-wrap {
         grid-row: 1;
         min-height: 250px;
       }
 
-      .portal {
-        width: 240px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .portal { width: 240px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 620px) {
-      .navbar {
-        padding: 14px 5%;
-      }
+      .navbar { padding: 14px 5%; }
 
-      .menu-toggle {
-        display: block;
-      }
+      .menu-toggle { display: block; }
 
       .nav-links {
         display: none;
@@ -608,33 +571,14 @@
         gap: 17px;
       }
 
-      .nav-links.open {
-        display: flex;
-      }
+      .nav-links.open { display: flex; }
 
-      section {
-        padding: 65px 5%;
-      }
-
-      .hero {
-        padding: 55px 5%;
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .panel {
-        padding: 21px;
-      }
-
-      footer {
-        padding: 22px 5%;
-      }
+      section { padding: 62px 5%; }
+      .hero { padding: 45px 5%; }
+      h1 { letter-spacing: -1px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .panel { padding: 21px; }
+      footer { padding: 22px 5%; }
     }
   </style>
 </head>
@@ -642,12 +586,17 @@
 <body>
   <div class="stars" aria-hidden="true"></div>
 
+  <!-- Navigation -->
   <header class="navbar">
     <a class="logo" href="#home">MARC<span>.</span>DEV</a>
 
-    <button class="menu-toggle" id="menuToggle"
+    <button
+      class="menu-toggle"
+      id="menuToggle"
       aria-label="Open navigation menu"
-      aria-expanded="false">☰</button>
+      aria-expanded="false"
+      aria-controls="navLinks"
+    >☰</button>
 
     <nav aria-label="Main navigation">
       <ul class="nav-links" id="navLinks">
@@ -662,46 +611,44 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero-content">
-        <div class="eyebrow">Engineering the Multiverse</div>
+        <div class="eyebrow">Enter the Multiverse</div>
 
         <h1>
-          Hello, I'm<br>
+          Hi, I'm<br>
           <span class="gradient-text">Marc Lawrence</span>
         </h1>
 
         <p>
           A 4th-year Computer Engineering student at ICCT Colleges,
-          exploring the worlds of technology, software development,
-          artificial intelligence, and innovative engineering solutions.
-          Welcome to my digital universe.
+          exploring software development, artificial intelligence, and
+          innovative engineering solutions. Step through my portal and
+          discover my work.
         </p>
 
         <div class="hero-buttons">
-          <a class="btn btn-primary" href="#projects">
-            ✦ Explore My Projects
-          </a>
-          <a class="btn btn-secondary" href="#contact">
-            Contact Me ↗
-          </a>
+          <a class="btn btn-primary" href="#projects">✦ Explore My Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me ↗</a>
         </div>
       </div>
 
-      <div class="portal-wrap" aria-label="Animated mystical portal">
+      <div class="portal-wrap" aria-label="Animated mystical multiverse portal">
         <div class="portal">
           <div class="portal-core">✧</div>
         </div>
       </div>
     </section>
 
+    <!-- About -->
     <section id="about">
       <div class="section-heading reveal">
         <small>Chapter I — The Origin</small>
         <h2>About <span class="gradient-text">Me</span></h2>
         <p>
-          Every great invention begins with curiosity. My journey is
-          about turning ideas into practical technology.
+          Every great invention begins with curiosity. My journey is about
+          turning ideas into practical technology.
         </p>
       </div>
 
@@ -709,39 +656,43 @@
         <article class="panel reveal">
           <h3>My Story</h3>
           <p>
-            I am a Computer Engineering student passionate about
-            technology, programming, and creating systems that solve
-            real-world problems. Through academic projects and
-            continuous learning, I am developing my skills in software,
-            intelligent systems, and engineering design.
+            I am a Computer Engineering student passionate about technology,
+            programming, and creating systems that solve real-world problems.
+            Through academic projects and continuous learning, I am developing
+            my skills in software, intelligent systems, and engineering design.
           </p>
           <br>
           <p>
-            Like a journey through the multiverse, every challenge gives
-            me a new opportunity to learn, experiment, and improve.
-            My goal is to keep growing as an engineer and contribute
-            to meaningful technology projects.
+            Like a journey through the multiverse, every challenge gives me a
+            new opportunity to learn, experiment, and improve. My goal is to
+            keep growing as an engineer and contribute to meaningful technology
+            projects.
           </p>
         </article>
 
         <aside class="panel reveal">
           <h3>Profile Dossier</h3>
+
           <div class="fact">
             <strong>Name</strong>
             <span>Marc Lawrence Castañeda</span>
           </div>
+
           <div class="fact">
             <strong>Education</strong>
             <span>4th-Year Computer Engineering Student</span>
           </div>
+
           <div class="fact">
             <strong>School</strong>
             <span>ICCT Colleges</span>
           </div>
+
           <div class="fact">
             <strong>Interests</strong>
             <span>Programming, AI, system design, engineering</span>
           </div>
+
           <div class="fact">
             <strong>Mission</strong>
             <span>Build useful and innovative technology</span>
@@ -750,13 +701,14 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
       <div class="section-heading reveal">
         <small>Chapter II — The Arsenal</small>
         <h2>My <span class="gradient-text">Skills</span></h2>
         <p>
-          The tools and technical areas I am learning and developing
-          throughout my Computer Engineering journey.
+          Technical areas I am learning and developing throughout my
+          Computer Engineering journey.
         </p>
       </div>
 
@@ -811,14 +763,14 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
       <div class="section-heading reveal">
         <small>Chapter III — The Artifacts</small>
         <h2>Featured <span class="gradient-text">Projects</span></h2>
         <p>
-          Two projects from my engineering journey. Replace the
-          descriptions or add project links when your repositories
-          and demos are ready.
+          Projects from my engineering journey. Contact me to learn more
+          about them.
         </p>
       </div>
 
@@ -830,10 +782,11 @@
           </div>
 
           <h3>AuraGuard AI</h3>
+
           <p>
-            An AI-focused project concept involving system components
-            and hardware planning. Explore the project's goals,
-            implementation, components, and development process here.
+            An AI-focused project concept involving system components and
+            hardware planning. Explore its goals, implementation, components,
+            and development process.
           </p>
 
           <div class="tags">
@@ -842,10 +795,10 @@
             <span class="tag">Hardware Planning</span>
           </div>
 
-          <!-- Replace # with your actual AuraGuard AI project URL. -->
-          <a class="project-link" href="#contact">
-            Ask About This Project ↗
-          </a>
+          <a
+            class="project-link"
+            href="mailto:marclawrencecastaneda9@gmail.com?subject=AuraGuard%20AI%20Project"
+          >Ask About This Project ↗</a>
         </article>
 
         <article class="panel project reveal">
@@ -855,10 +808,11 @@
           </div>
 
           <h3>E-Barangay</h3>
+
           <p>
-            A digital barangay project focused on exploring how
-            technology can support community services, information
-            management, and more convenient local processes.
+            A digital barangay project exploring how technology can support
+            community services, information management, and convenient local
+            processes.
           </p>
 
           <div class="tags">
@@ -867,21 +821,22 @@
             <span class="tag">System Design</span>
           </div>
 
-          <!-- Replace # with your actual E-Barangay project URL. -->
-          <a class="project-link" href="#contact">
-            Ask About This Project ↗
-          </a>
+          <a
+            class="project-link"
+            href="mailto:marclawrencecastaneda9@gmail.com?subject=E-Barangay%20Project"
+          >Ask About This Project ↗</a>
         </article>
       </div>
     </section>
 
+    <!-- Journey -->
     <section id="journey">
       <div class="section-heading reveal">
         <small>Chapter IV — The Journey</small>
         <h2>My <span class="gradient-text">Engineering Path</span></h2>
         <p>
-          A work in progress: learning, building, and preparing for
-          future opportunities in technology.
+          Learning, building, and preparing for future opportunities in
+          technology.
         </p>
       </div>
 
@@ -890,8 +845,8 @@
           <div class="journey-item">
             <h3>Computer Engineering Education</h3>
             <p>
-              Studying at ICCT Colleges and developing knowledge
-              in computer systems and engineering.
+              Studying at ICCT Colleges and developing knowledge in computer
+              systems and engineering.
             </p>
           </div>
 
@@ -906,67 +861,76 @@
           <div class="journey-item">
             <h3>Growing Technical Skills</h3>
             <p>
-              Improving programming, system development, and
-              problem-solving skills through practice.
+              Improving programming, system development, and problem-solving
+              skills through practice.
             </p>
           </div>
 
           <div class="journey-item">
             <h3>The Next Chapter</h3>
             <p>
-              Seeking opportunities to apply my skills, collaborate
-              with others, and continue learning as an engineer.
+              Seeking opportunities to apply my skills, collaborate with
+              others, and continue learning as an engineer.
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <div class="contact-panel reveal">
         <div class="eyebrow">Open a Portal</div>
-        <h2>Let's Build Something <span class="gradient-text">Great</span></h2>
+
+        <h2>
+          Let's Build Something
+          <span class="gradient-text">Great</span>
+        </h2>
+
         <p>
-          Interested in my projects or want to collaborate?
-          Connect with me through GitHub.
+          Interested in my projects or want to collaborate? Send me an email.
         </p>
 
-        <a class="btn btn-primary"
-           href="https://github.com/marclawrence9"
-           target="_blank"
-           rel="noopener noreferrer">
-          View My GitHub ↗
-        </a>
+        <a
+          class="contact-email"
+          href="mailto:marclawrencecastaneda9@gmail.com"
+        >marclawrencecastaneda9@gmail.com</a>
+
+        <a
+          class="btn btn-primary"
+          href="mailto:marclawrencecastaneda9@gmail.com?subject=Portfolio%20Inquiry"
+        >✉ Email Me</a>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <span>© <span id="year"></span> Marc Lawrence Castañeda</span>
     <span>Forged in code. Inspired by the Multiverse ✦</span>
   </footer>
 
   <script>
-    // Current year in the footer
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    // Automatically update the copyright year.
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile navigation menu
+    // Mobile navigation menu.
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      const open = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(open));
       menuToggle.setAttribute(
         "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
+        open ? "Close navigation menu" : "Open navigation menu"
       );
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.textContent = open ? "✕" : "☰";
     });
 
-    // Close the menu after choosing a section
-    navLinks.querySelectorAll("a").forEach(link => {
+    // Close the mobile menu after selecting a navigation link.
+    navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
@@ -975,22 +939,25 @@
       });
     });
 
-    // Reveal sections as they enter the viewport
-    const revealElements = document.querySelectorAll(".reveal");
+    // Reveal content as it scrolls into view.
+    const items = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
 
-      revealElements.forEach(element => observer.observe(element));
+      items.forEach((item) => observer.observe(item));
     } else {
-      revealElements.forEach(element => element.classList.add("visible"));
+      items.forEach((item) => item.classList.add("visible"));
     }
   </script>
 </body>
