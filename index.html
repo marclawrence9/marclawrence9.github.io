@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080713">
-  <meta name="description" content="Marc Lawrence Castañeda - Computer Engineering Student Portfolio">
+  <meta name="description" content="Marc Lawrence Castañeda - Computer Engineering Portfolio">
   <title>Marc Lawrence | Multiverse Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,10 +65,6 @@
       text-decoration: none;
     }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .container {
       width: min(1120px, 90%);
       margin: auto;
@@ -76,7 +72,7 @@
 
     .section {
       padding: 90px 0;
-      scroll-margin-top: 80px;
+      scroll-margin-top: 85px;
     }
 
     .section-title {
@@ -99,14 +95,13 @@
     }
 
     /* NAVIGATION */
-
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 100;
-      background: rgba(8,7,19,.92);
+      background: rgba(8,7,19,.94);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -121,7 +116,7 @@
 
     .logo {
       font-family: "Orbitron", sans-serif;
-      font-size: 1rem;
+      font-size: .95rem;
       font-weight: 800;
       letter-spacing: 1px;
       white-space: nowrap;
@@ -134,7 +129,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
       list-style: none;
     }
 
@@ -156,18 +151,16 @@
       color: white;
       padding: 6px 12px;
       border-radius: 6px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
     }
 
     /* HERO */
-
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       padding: 125px 0 75px;
-      position: relative;
       overflow: hidden;
     }
 
@@ -186,7 +179,7 @@
       border-radius: 30px;
       padding: 6px 15px;
       letter-spacing: 2px;
-      font-size: .9rem;
+      font-size: .85rem;
       margin-bottom: 22px;
     }
 
@@ -231,7 +224,6 @@
       font-size: 1.05rem;
       border: 1px solid var(--red);
       transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
     }
 
     .btn-primary {
@@ -251,7 +243,6 @@
     }
 
     /* MYSTICAL PORTAL */
-
     .portal-area {
       min-height: 380px;
       display: grid;
@@ -341,8 +332,7 @@
       to { transform: rotate(360deg); }
     }
 
-    /* CARDS */
-
+    /* SHARED CARDS */
     .about-grid,
     .experience-grid {
       display: grid;
@@ -381,7 +371,6 @@
     }
 
     /* SKILLS */
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -415,7 +404,6 @@
     }
 
     /* PROJECTS */
-
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -500,7 +488,6 @@
     }
 
     /* WORK EXPERIENCE */
-
     .experience-card {
       border-left: 3px solid var(--red);
     }
@@ -508,16 +495,10 @@
     .experience-card .role {
       color: var(--blue);
       font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .experience-card .date {
-      color: #d4a4ff;
       margin-bottom: 12px;
-      font-size: .98rem;
     }
 
-    .experience-card .experience-tags {
+    .experience-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -533,7 +514,6 @@
     }
 
     /* CONTACT */
-
     .contact-box {
       max-width: 760px;
       margin: auto;
@@ -569,8 +549,7 @@
       color: var(--red);
     }
 
-    /* ANIMATIONS */
-
+    /* REVEAL ANIMATIONS */
     .reveal {
       opacity: 0;
       transform: translateY(25px);
@@ -597,7 +576,6 @@
     }
 
     /* RESPONSIVE DESIGN */
-
     @media (max-width: 800px) {
       .menu-toggle {
         display: block;
@@ -704,10 +682,10 @@
           <h2>Computer Engineering Student</h2>
 
           <p>
-            Exploring the intersection of technology, creativity,
-            and innovation. I am a fourth-year Computer Engineering
-            student at ICCT Colleges, developing projects and
-            building skills for the world of technology.
+            I am a fourth-year Computer Engineering student at
+            ICCT Colleges, passionate about technology, programming,
+            engineering projects, and developing practical solutions
+            through creativity and continuous learning.
           </p>
 
           <div class="buttons">
@@ -837,10 +815,9 @@
             <div class="project-content">
               <h3>AuraGuard AI</h3>
               <p>
-                An AI-focused engineering project designed around
-                intelligent technology and practical applications.
-                Explore the project documentation for its components,
-                design, and implementation details.
+                An AI-focused engineering project exploring intelligent
+                technology and practical applications. This project
+                showcases my interest in system design and innovation.
               </p>
 
               <div class="tags">
@@ -848,10 +825,6 @@
                 <span class="tag">Engineering</span>
                 <span class="tag">Innovation</span>
               </div>
-
-              <a class="project-link" href="#contact">
-                Project Information ↗
-              </a>
             </div>
           </article>
 
@@ -873,36 +846,33 @@
                 <span class="tag">Web Project</span>
                 <span class="tag">Community</span>
               </div>
-
-              <a class="project-link" href="#contact">
-                Project Information ↗
-              </a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- WORK EXPERIENCE -->
+    <!-- UPDATED WORK EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
         <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
         <p class="section-subtitle">
-          Professional experience beyond the classroom.
+          My professional work experience.
         </p>
 
         <div class="experience-grid">
-          <!-- Healthy Options -->
+
+          <!-- HEALTHY OPTIONS: ENCODER -->
           <article class="card experience-card reveal">
             <div class="card-icon">📋</div>
             <h3>Encoder</h3>
             <p class="role">Healthy Options</p>
-            <p class="date">Work Experience</p>
 
             <p>
-              Handled encoding tasks with an emphasis on accurate
-              data entry, organized information, attention to detail,
-              and responsible completion of assigned tasks.
+              Responsible for encoding information accurately,
+              organizing records, checking data entries, and
+              completing assigned encoding tasks with attention
+              to detail.
             </p>
 
             <div class="experience-tags">
@@ -912,17 +882,17 @@
             </div>
           </article>
 
-          <!-- Extra Joss -->
+          <!-- EXTRA JOSS: ENCODER AND PACKER -->
           <article class="card experience-card reveal">
             <div class="card-icon">📦</div>
             <h3>Encoder and Packer</h3>
             <p class="role">Extra Joss</p>
-            <p class="date">Work Experience</p>
 
             <p>
-              Performed encoding and packing tasks, maintained
-              attention to detail, organized products, and supported
-              efficient completion of assigned work.
+              Responsible for encoding information and packing
+              products, organizing items, checking packing
+              accuracy, and helping maintain an orderly and
+              efficient workflow.
             </p>
 
             <div class="experience-tags">
@@ -931,6 +901,7 @@
               <span>Teamwork</span>
             </div>
           </article>
+
         </div>
       </div>
     </section>
@@ -953,13 +924,13 @@
           </p>
 
           <a class="contact-email"
-             href="mailto:marclawrencecastaneda9@gmail.com">
+            href="mailto:marclawrencecastaneda9@gmail.com">
             marclawrencecastaneda9@gmail.com
           </a>
 
           <div class="buttons" style="justify-content:center">
             <a class="btn btn-primary"
-               href="mailto:marclawrencecastaneda9@gmail.com">
+              href="mailto:marclawrencecastaneda9@gmail.com">
               Send Me an Email
             </a>
           </div>
@@ -994,11 +965,11 @@
       });
     });
 
-    // Automatically update footer year
+    // Automatic footer year
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Reveal sections when they enter the viewport
+    // Scroll reveal
     const revealElements = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
@@ -1026,7 +997,7 @@
     let width = 0;
     let height = 0;
     let animationFrame;
-    let isPaused = false;
+    let isPaused = document.hidden;
 
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -1082,8 +1053,9 @@
     }
 
     function startAnimation() {
+      cancelAnimationFrame(animationFrame);
+
       if (!reducedMotion && !isPaused) {
-        cancelAnimationFrame(animationFrame);
         drawStars();
       }
     }
@@ -1098,9 +1070,7 @@
 
     document.addEventListener("visibilitychange", () => {
       isPaused = document.hidden;
-      cancelAnimationFrame(animationFrame);
-
-      if (!isPaused) startAnimation();
+      startAnimation();
     });
   </script>
 </body>
