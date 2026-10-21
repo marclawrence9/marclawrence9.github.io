@@ -2,703 +2,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#090713">
-    <meta name="description" content="Marc Lawrence Castañeda - Computer Engineering student portfolio, projects, skills, and work experience.">
-    <title>Marc Lawrence Castañeda | Portfolio</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #090713;
-            --surface: #151025;
-            --surface-light: #1d1632;
-            --purple: #a855f7;
-            --cyan: #44e7ff;
-            --gold: #ffc857;
-            --text: #f5f0ff;
-            --muted: #b7accd;
-            --border: rgba(168, 85, 247, 0.28);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background:
-                radial-gradient(ellipse at 10% 10%, #24113c 0, transparent 35%),
-                radial-gradient(ellipse at 90% 45%, #101d37 0, transparent 35%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button, a {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        button:focus-visible, a:focus-visible {
-            outline: 2px solid var(--cyan);
-            outline-offset: 4px;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: auto;
-        }
-
-        .section {
-            padding: 90px 0;
-            scroll-margin-top: 85px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-heading .eyebrow {
-            color: var(--cyan);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .section-heading h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.7rem, 4vw, 2.5rem);
-            margin: 12px 0;
-        }
-
-        .section-heading p {
-            max-width: 650px;
-            color: var(--muted);
-            margin: auto;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--purple), var(--cyan));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Navigation */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(9, 7, 19, 0.88);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(18px);
-        }
-
-        nav {
-            min-height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: var(--cyan);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 23px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 0.82rem;
-            transition: color 0.25s;
-        }
-
-        .nav-links a:hover {
-            color: var(--cyan);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 7px 11px;
-            font-size: 1.3rem;
-            cursor: pointer;
-        }
-
-        /* Buttons */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 21px;
-            border-radius: 9px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            border: 1px solid var(--purple);
-            transition: 0.25s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: linear-gradient(120deg, #8738d6, #6335bd);
-            color: white;
-            box-shadow: 0 0 22px rgba(168, 85, 247, 0.17);
-        }
-
-        .btn-outline {
-            color: var(--cyan);
-            border-color: rgba(68, 231, 255, 0.5);
-            background: transparent;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(68, 231, 255, 0.17);
-        }
-
-        /* Hero */
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 90px 0;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 0.65fr;
-            align-items: center;
-            gap: 45px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            padding: 7px 13px;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            color: var(--cyan);
-            font-size: 0.78rem;
-            margin-bottom: 23px;
-            background: rgba(168, 85, 247, 0.08);
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            color: var(--cyan);
-            font-size: clamp(1rem, 2vw, 1.35rem);
-            font-weight: 500;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 620px;
-            margin-bottom: 28px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 13px;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .portal {
-            width: min(310px, 70vw);
-            aspect-ratio: 1;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background:
-                radial-gradient(circle, #20143c 0 34%, transparent 35%),
-                conic-gradient(from 0deg, #a855f7, #3b82f6, #44e7ff, #ffc857, #a855f7);
-            box-shadow:
-                0 0 30px rgba(168, 85, 247, 0.35),
-                0 0 85px rgba(68, 231, 255, 0.12);
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .portal::before {
-            content: "";
-            position: absolute;
-            inset: 12px;
-            border: 2px dashed rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: spin 25s linear infinite;
-        }
-
-        .portal::after {
-            content: "";
-            position: absolute;
-            inset: 29px;
-            border: 2px solid rgba(255, 200, 87, 0.7);
-            border-radius: 50%;
-        }
-
-        .portal-symbol {
-            z-index: 1;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem;
-            color: var(--gold);
-            text-shadow: 0 0 25px rgba(255, 200, 87, 0.7);
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 28px;
-        }
-
-        .tag {
-            font-size: 0.76rem;
-            color: var(--muted);
-            padding: 6px 11px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.025);
-        }
-
-        /* Cards */
-
-        .card {
-            background: linear-gradient(145deg,
-                rgba(29, 22, 50, 0.92),
-                rgba(15, 12, 28, 0.94));
-            border: 1px solid var(--border);
-            border-radius: 17px;
-            padding: 27px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(68, 231, 255, 0.55);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 13px;
-        }
-
-        .card h3 {
-            font-size: 1.18rem;
-            margin-bottom: 9px;
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 0.91rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 24px;
-        }
-
-        .info-list {
-            display: grid;
-            gap: 13px;
-            margin-top: 20px;
-        }
-
-        .info-item {
-            padding: 13px;
-            background: rgba(255, 255, 255, 0.035);
-            border-radius: 9px;
-            border-left: 3px solid var(--purple);
-        }
-
-        .info-item strong {
-            display: block;
-            color: var(--cyan);
-            font-size: 0.83rem;
-            margin-bottom: 3px;
-        }
-
-        .info-item span {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        /* Work Experience */
-
-        .experience-list {
-            max-width: 850px;
-            margin: auto;
-            display: grid;
-            gap: 22px;
-        }
-
-        .experience-card {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card::before {
-            content: "";
-            position: absolute;
-            width: 4px;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            background: linear-gradient(var(--purple), var(--cyan));
-        }
-
-        .experience-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .experience-company {
-            color: var(--cyan);
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        .experience-type {
-            display: inline-block;
-            border: 1px solid rgba(255, 200, 87, 0.4);
-            color: var(--gold);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-        }
-
-        .experience-card ul,
-        .project-card ul {
-            padding-left: 21px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .experience-card li,
-        .project-card li {
-            margin: 8px 0;
-        }
-
-        .experience-note {
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-top: 15px;
-        }
-
-        /* Projects */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px;
-        }
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card .project-footer {
-            margin-top: auto;
-            padding-top: 22px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .project-label {
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.7rem;
-            margin-bottom: 8px;
-        }
-
-        .project-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.25rem;
-            margin-bottom: 13px;
-        }
-
-        .project-card h4 {
-            font-size: 0.9rem;
-            color: var(--cyan);
-            margin: 18px 0 7px;
-        }
-
-        .project-card p {
-            margin-bottom: 10px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 12px;
-        }
-
-        .tech-stack span {
-            padding: 5px 9px;
-            border-radius: 6px;
-            color: var(--cyan);
-            background: rgba(68, 231, 255, 0.07);
-            font-size: 0.72rem;
-        }
-
-        .notice {
-            color: var(--muted);
-            font-size: 0.78rem;
-            margin-top: 18px;
-        }
-
-        /* Skills */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card h3 {
-            color: var(--cyan);
-            margin-bottom: 10px;
-        }
-
-        /* Education */
-
-        .education-card {
-            max-width: 800px;
-            margin: auto;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .education-icon {
-            font-size: 2.5rem;
-        }
-
-        .education-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.05rem;
-        }
-
-        .education-card .school {
-            color: var(--cyan);
-            margin: 6px 0;
-        }
-
-        /* Contact */
-
-        .contact-card {
-            max-width: 760px;
-            text-align: center;
-            margin: auto;
-        }
-
-        .contact-card p {
-            margin-bottom: 23px;
-        }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 13px;
-        }
-
-        .email-text {
-            overflow-wrap: anywhere;
-            color: var(--cyan);
-            margin: 12px 0 25px;
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 26px 0;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.82rem;
-        }
-
-        footer span {
-            color: var(--cyan);
-        }
-
-        /* Mobile layout */
-
-        @media (max-width: 900px) {
-            .nav-links {
-                gap: 13px;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr 0.7fr;
-                gap: 20px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 700px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 72px;
-                left: 0;
-                right: 0;
-                padding: 20px 5%;
-                background: #100b20;
-                border-bottom: 1px solid var(--border);
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 11px 0;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 75px 0;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                grid-row: 1;
-                margin-bottom: 20px;
-            }
-
-            .portal {
-                width: 210px;
-            }
-
-            .portal-symbol {
-                font-size: 3.5rem;
-            }
-
-            .about-grid,
-            .projects-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 65px 0;
-            }
-
-            .education-card {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08040d">
+<meta name="description" content="Marc Lawrence Castañeda | Computer Engineering Portfolio">
+<title>Marc Lawrence | Multiverse Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #08040d;
+    --panel: rgba(20, 10, 28, .92);
+    --red: #ff442f;
+    --orange: #ff9c32;
+    --purple: #a45aff;
+    --blue: #3aabff;
+    --gold: #ffd58a;
+    --text: #fff5ee;
+    --muted: #c6b7cb;
+    --border: rgba(255, 110, 58, .35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 12% 10%, #351020 0, transparent 35%),
+        radial-gradient(ellipse at 90% 30%, #17103c 0, transparent 38%),
+        var(--bg);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.container { width: min(1120px, 90%); margin: auto; }
+section { padding: 90px 0; }
+h1, h2, h3, .logo { font-family: 'Cinzel', serif; }
+p { color: var(--muted); }
+.gradient {
+    background: linear-gradient(90deg, #ff573c, #ffc66b, #c18aff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.section-title { text-align: center; margin-bottom: 42px; }
+.section-title small {
+    color: var(--orange);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.section-title h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); margin: 10px 0; }
+.section-title p { max-width: 650px; margin: auto; }
+
+/* Magical background */
+.magic-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.orb {
+    position: absolute;
+    width: 260px;
+    aspect-ratio: 1;
+    border: 2px solid rgba(255, 89, 44, .13);
+    border-radius: 50%;
+    box-shadow: 0 0 55px rgba(255, 67, 34, .07),
+                inset 0 0 40px rgba(160, 60, 255, .06);
+    animation: drift 12s ease-in-out infinite;
+}
+.orb.one { top: 10%; left: -160px; }
+.orb.two { right: -170px; top: 48%; border-color: rgba(140, 70, 255, .15); animation-delay: -5s; }
+.orb.three { left: 40%; bottom: -220px; animation-delay: -8s; }
+@keyframes drift {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(25deg); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 18px rgba(255, 84, 40, .35), 0 0 45px rgba(255, 84, 40, .12); }
+    50% { box-shadow: 0 0 35px rgba(255, 155, 45, .65), 0 0 75px rgba(255, 70, 40, .2); }
+}
+
+/* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 4, 13, .9);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+}
+nav {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.logo { font-size: 1.25rem; color: var(--gold); white-space: nowrap; }
+.logo span { color: var(--red); }
+.nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+.nav-links a { font-size: .82rem; color: var(--muted); transition: .2s; }
+.nav-links a:hover { color: var(--orange); }
+.menu-toggle {
+    display: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    background: transparent;
+    color: var(--gold);
+    font-size: 1.25rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border: 1px solid var(--orange);
+    border-radius: 30px;
+    font-size: .87rem;
+    font-weight: 600;
+    transition: .25s;
+    cursor: pointer;
+}
+.btn-primary {
+    color: #fff;
+    background: linear-gradient(110deg, #d62d20, #ff7b27);
+    animation: pulse 4s infinite;
+}
+.btn-outline { color: var(--gold); background: rgba(10, 5, 16, .6); }
+.btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
+
+/* Hero */
+.hero { min-height: 78vh; display: flex; align-items: center; padding: 75px 0; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 35px; }
+.kicker {
+    display: inline-block;
+    color: var(--orange);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 6px 13px;
+    font-size: .78rem;
+    margin-bottom: 22px;
+    background: rgba(255, 90, 35, .06);
+}
+.hero h1 { font-size: clamp(2.2rem, 5.4vw, 4.3rem); line-height: 1.17; margin-bottom: 20px; }
+.hero h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1rem, 2.4vw, 1.35rem); color: var(--gold); font-weight: 500; margin-bottom: 15px; }
+.hero p { max-width: 610px; margin-bottom: 25px; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
+.tag {
+    border: 1px solid rgba(255, 156, 50, .35);
+    background: rgba(255, 255, 255, .025);
+    border-radius: 7px;
+    padding: 5px 10px;
+    font-size: .73rem;
+    color: var(--gold);
+}
+
+/* Portal illustration made with CSS */
+.portal-wrap { display: flex; justify-content: center; align-items: center; padding: 20px; }
+.portal {
+    width: min(340px, 72vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle, #1d1736 0 34%, transparent 35%),
+                conic-gradient(from 0deg, #ff4028, #ffb43c, #a84cff, #377bff, #ff4028);
+    animation: pulse 4s infinite;
+}
+.portal::before, .portal::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+.portal::before {
+    inset: 10px;
+    border: 3px dashed rgba(255, 225, 166, .95);
+    animation: spin 22s linear infinite;
+}
+.portal::after {
+    inset: 26px;
+    border: 3px solid rgba(255, 128, 54, .8);
+    box-shadow: inset 0 0 28px #ff632c, 0 0 25px #ff632c;
+}
+.portal-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 4rem;
+    text-shadow: 0 0 25px #ff632c;
+}
+.portal-inner span { display: block; font-size: .8rem; letter-spacing: 4px; }
+
+/* Cards */
+.grid { display: grid; gap: 22px; }
+.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card {
+    padding: 26px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(29, 15, 36, .96), rgba(10, 7, 19, .96));
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+}
+.card::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    top: 0; left: 10%; right: 10%;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+    opacity: .65;
+}
+.card:hover { transform: translateY(-5px); border-color: rgba(255, 173, 75, .7); }
+.card-icon { font-size: 2rem; margin-bottom: 10px; }
+.card h3 { font-size: 1.2rem; margin-bottom: 9px; }
+.card p { font-size: .91rem; }
+.info-list { display: grid; gap: 12px; margin-top: 20px; }
+.info-item { padding: 12px; border-left: 2px solid var(--orange); background: rgba(255,255,255,.025); }
+.info-item strong { display: block; color: var(--gold); font-size: .83rem; }
+.info-item span { color: var(--muted); font-size: .87rem; }
+
+/* Work experience */
+.experience-list { max-width: 850px; margin: auto; }
+.experience-top { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; margin-bottom: 14px; }
+.company { color: var(--orange); font-weight: 600; }
+.badge {
+    align-self: start;
+    border: 1px solid var(--border);
+    color: var(--gold);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: .73rem;
+}
+ul.details { padding-left: 21px; margin-top: 13px; color: var(--muted); font-size: .9rem; }
+ul.details li { margin: 7px 0; }
+ul.details li::marker { color: var(--orange); }
+.note { font-size: .76rem !important; margin-top: 16px; }
+
+/* Projects */
+.project-card { display: flex; flex-direction: column; }
+.project-label { color: var(--orange); font-size: .73rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.project-card h3 { font-size: 1.35rem; }
+.project-card h4 { color: var(--gold); font-size: .9rem; margin: 17px 0 5px; }
+.tech { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+.tech span {
+    color: #87e8ff;
+    border: 1px solid rgba(58, 171, 255, .35);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: .7rem;
+}
+.project-footer { margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Skills and education */
+.skill-card h3 { color: var(--gold); }
+.education-card { max-width: 800px; margin: auto; display: flex; gap: 20px; align-items: flex-start; }
+.education-icon { font-size: 2.3rem; }
+.school { color: var(--orange); margin: 5px 0; }
+
+/* Contact and footer */
+.contact-card { max-width: 760px; margin: auto; text-align: center; }
+.email { color: var(--gold); overflow-wrap: anywhere; margin: 15px 0 23px; }
+.contact-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+footer { border-top: 1px solid var(--border); padding: 25px 0; text-align: center; font-size: .8rem; color: var(--muted); }
+footer p { margin: 4px 0; }
+footer a { color: var(--gold); }
+
+@media (max-width: 900px) {
+    .nav-links { gap: 12px; }
+    .nav-links a { font-size: .74rem; }
+    .three-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px; left: 0; right: 0;
+        background: #100815;
+        padding: 15px 5%;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { display: block; padding: 10px 0; font-size: .9rem; }
+    .hero { min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .portal-wrap { grid-row: 1; }
+    .portal { width: 220px; }
+    .portal-inner { font-size: 3rem; }
+    section { padding: 65px 0; }
+    .two-col, .three-col { grid-template-columns: 1fr; }
+    .education-card { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<div class="magic-background" aria-hidden="true">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+</div>
+
 <header>
     <nav class="container" aria-label="Main navigation">
-        <a href="#home" class="logo">MARC<span>.</span>DEV</a>
-
-        <button class="menu-toggle"
-                id="menuToggle"
-                aria-label="Toggle navigation"
-                aria-expanded="false"
-                aria-controls="navLinks">
-            ☰
-        </button>
-
+        <a class="logo" href="#home">✦ MARC<span>.</span>DEV</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -712,43 +350,24 @@
 </header>
 
 <main>
-
     <!-- HERO -->
     <section class="hero" id="home">
         <div class="container hero-grid">
-
-            <div class="hero-content">
-                <div class="hero-label">
-                    ✦ Computer Engineering Student
-                </div>
-
-                <h1>
-                    Hi, I'm <span class="gradient-text">Marc Lawrence Castañeda.</span>
-                </h1>
-
+            <div>
+                <div class="kicker">✦ COMPUTER ENGINEERING STUDENT</div>
+                <h1>Hi, I'm <span class="gradient">Marc Lawrence Castañeda.</span></h1>
                 <h2>Building Ideas Into Real Solutions.</h2>
-
                 <p>
-                    I'm a fourth-year Computer Engineering student at
-                    ICCT Colleges interested in web development, hardware,
-                    automation, and technology-driven solutions. My experience
+                    I'm a fourth-year Computer Engineering student at ICCT Colleges,
+                    interested in web development, hardware, automation, and
+                    technology-driven solutions. My professional experience
                     also includes encoder work at Healthy Options.
                 </p>
-
                 <div class="hero-buttons">
-                    <a class="btn btn-primary" href="#projects">
-                        Explore My Projects ↗
-                    </a>
-
-                    <a class="btn btn-outline"
-                       href="https://github.com/marclawrence9"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        View GitHub ↗
-                    </a>
+                    <a class="btn btn-primary" href="#projects">Explore My Projects ↗</a>
+                    <a class="btn btn-outline" href="https://github.com/marclawrence9" target="_blank" rel="noopener noreferrer">View GitHub ↗</a>
                 </div>
-
-                <div class="hero-tags">
+                <div class="tags">
                     <span class="tag">HTML &amp; CSS</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">AI Concepts</span>
@@ -756,441 +375,266 @@
                 </div>
             </div>
 
-            <div class="hero-visual" aria-hidden="true">
+            <div class="portal-wrap" aria-label="Animated multiverse portal illustration">
                 <div class="portal">
-                    <div class="portal-symbol">M</div>
+                    <div class="portal-inner">M<span>MULTIVERSE</span></div>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about">
+    <section id="about">
         <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">About Me</div>
-                <h2>Curiosity Meets <span class="gradient-text">Engineering.</span></h2>
-                <p>
-                    Learning how software and hardware can work together
-                    to solve practical problems.
-                </p>
+            <div class="section-title">
+                <small>About Me</small>
+                <h2>Curiosity Meets <span class="gradient">Engineering.</span></h2>
+                <p>Learning how software and hardware can work together to solve practical problems.</p>
             </div>
 
-            <div class="about-grid">
+            <div class="grid two-col">
                 <article class="card">
                     <div class="card-icon">🧑‍💻</div>
                     <h3>Who I Am</h3>
-
                     <p>
-                        I'm Marc Lawrence Castañeda, a fourth-year
-                        Computer Engineering student at ICCT Colleges.
-                        I build my skills through academic work, programming
-                        practice, and project development.
+                        I'm Marc Lawrence Castañeda, a fourth-year Computer Engineering
+                        student at ICCT Colleges. I develop my technical knowledge
+                        through academic work, programming practice, and project development.
                     </p>
-
                     <br>
-
                     <p>
-                        My interests include creating websites, exploring
-                        AI-assisted systems, understanding hardware
-                        integration, and developing useful digital tools.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        My goal is to keep learning, strengthen my technical
-                        abilities, and turn ideas into practical solutions.
+                        My interests include website creation, AI-assisted systems,
+                        hardware integration, and useful digital tools. My goal is to
+                        continue improving my skills and create practical solutions
+                        through technology.
                     </p>
                 </article>
 
                 <article class="card">
-                    <div class="card-icon">✨</div>
+                    <div class="card-icon">🔮</div>
                     <h3>Quick Information</h3>
-
                     <div class="info-list">
-                        <div class="info-item">
-                            <strong>Education</strong>
-                            <span>Fourth-year Computer Engineering student</span>
-                        </div>
-
-                        <div class="info-item">
-                            <strong>School</strong>
-                            <span>ICCT Colleges</span>
-                        </div>
-
-                        <div class="info-item">
-                            <strong>Work Experience</strong>
-                            <span>Encoder — Healthy Options</span>
-                        </div>
-
-                        <div class="info-item">
-                            <strong>Web Development</strong>
-                            <span>HTML, CSS, and JavaScript</span>
-                        </div>
-
-                        <div class="info-item">
-                            <strong>Current Focus</strong>
-                            <span>Academic projects and practical technical skills</span>
-                        </div>
+                        <div class="info-item"><strong>Education</strong><span>Fourth-year Computer Engineering student</span></div>
+                        <div class="info-item"><strong>School</strong><span>ICCT Colleges</span></div>
+                        <div class="info-item"><strong>Work Experience</strong><span>Encoder — Healthy Options</span></div>
+                        <div class="info-item"><strong>Web Development</strong><span>HTML, CSS, JavaScript</span></div>
+                        <div class="info-item"><strong>Current Focus</strong><span>Academic projects and technical growth</span></div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- WORK EXPERIENCE -->
-    <section class="section" id="experience">
+    <!-- EXPERIENCE -->
+    <section id="experience">
         <div class="container">
-
-            <div class="section-heading">
-                <div class="eyebrow">Professional Journey</div>
-                <h2>My <span class="gradient-text">Work Experience.</span></h2>
-                <p>
-                    Building professional skills through workplace
-                    responsibilities and practical experience.
-                </p>
+            <div class="section-title">
+                <small>Professional Journey</small>
+                <h2>My <span class="gradient">Work Experience.</span></h2>
+                <p>Building professional skills through workplace responsibilities and practical experience.</p>
             </div>
 
             <div class="experience-list">
-                <article class="card experience-card">
-
+                <article class="card">
                     <div class="experience-top">
                         <div>
+                            <div class="card-icon">📋</div>
                             <h3>Encoder</h3>
-                            <div class="experience-company">
-                                Healthy Options
-                            </div>
+                            <div class="company">Healthy Options</div>
                         </div>
-
-                        <span class="experience-type">
-                            Work Experience
-                        </span>
+                        <span class="badge">Work Experience</span>
                     </div>
-
                     <p>
-                        Worked as an Encoder at Healthy Options, with a focus
-                        on accurate data entry, record organization, and
-                        administrative support.
+                        Worked as an Encoder at Healthy Options, focusing on accurate
+                        data entry, record organization, and administrative support.
                     </p>
-
-                    <h4 style="margin-top: 20px; margin-bottom: 8px;">
-                        Responsibilities
-                    </h4>
-
-                    <ul>
+                    <h4 style="color:var(--gold);margin-top:18px;">Responsibilities</h4>
+                    <ul class="details">
                         <li>Entered and updated records accurately.</li>
                         <li>Checked data for completeness and consistency.</li>
                         <li>Organized and maintained digital records and documents.</li>
                         <li>Supported routine administrative and data-processing tasks.</li>
                         <li>Handled workplace information responsibly and confidentially.</li>
                     </ul>
-
-                    <p class="experience-note">
-                        Note: Keep or edit these responsibilities to match
-                        the duties you actually performed. Add your
-                        employment dates when ready.
+                    <p class="note">
+                        Edit these suggested responsibilities to reflect your actual duties.
+                        Add your employment dates when ready.
                     </p>
-
                 </article>
             </div>
         </div>
     </section>
 
     <!-- PROJECTS -->
-    <section class="section" id="projects">
+    <section id="projects">
         <div class="container">
-
-            <div class="section-heading">
-                <div class="eyebrow">Selected Work</div>
-                <h2>Projects From <span class="gradient-text">Ideas to Impact.</span></h2>
-                <p>
-                    Academic project concepts focused on wellness technology,
-                    community services, and intelligent digital systems.
-                </p>
+            <div class="section-title">
+                <small>Selected Work</small>
+                <h2>Projects From <span class="gradient">Ideas to Impact.</span></h2>
+                <p>Academic project concepts focused on wellness technology, community services, and intelligent systems.</p>
             </div>
 
-            <div class="projects-grid">
-
-                <!-- AURAGUARD AI -->
+            <div class="grid two-col">
                 <article class="card project-card">
                     <div class="card-icon">🧠</div>
                     <div class="project-label">Academic Project</div>
-
                     <h3>AuraGuard AI</h3>
-
                     <p>
-                        A proposed AI-assisted wellness monitoring system
-                        for educational environments. The concept explores
-                        camera-based observations, thermal sensing, and
-                        pulse-related signals for wellness screening and
-                        trend monitoring.
+                        An AI-assisted wellness monitoring project concept for educational
+                        environments, exploring camera-based observations, thermal sensing,
+                        and pulse-related signals for wellness trend monitoring.
                     </p>
-
                     <h4>Proposed Features</h4>
-
-                    <ul>
+                    <ul class="details">
                         <li>Camera-based facial and behavioral feature analysis.</li>
                         <li>Blinking, yawning, and possible fatigue indicators.</li>
                         <li>Thermal and PPG sensor data collection concepts.</li>
-                        <li>AI-assisted risk grouping and wellness trend review.</li>
-                        <li>Dashboard, records, and alert concepts.</li>
+                        <li>Dashboard, trend review, and alert concepts.</li>
                     </ul>
-
                     <h4>Technology Areas</h4>
-
-                    <div class="tech-stack">
-                        <span>Python</span>
-                        <span>OpenCV</span>
-                        <span>MediaPipe</span>
-                        <span>ESP32</span>
-                        <span>AI/ML</span>
-                        <span>Sensors</span>
+                    <div class="tech">
+                        <span>Python</span><span>OpenCV</span><span>MediaPipe</span>
+                        <span>ESP32</span><span>AI/ML</span><span>Sensors</span>
                     </div>
-
                     <div class="project-footer">
-                        <a class="btn btn-outline"
-                           href="https://github.com/marclawrence9"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            GitHub Profile ↗
-                        </a>
+                        <a class="btn btn-outline" href="https://github.com/marclawrence9" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
                     </div>
-
-                    <p class="notice">
-                        Project concept: proposed capabilities are not
-                        necessarily implemented or clinically validated.
-                        This is not a medical diagnostic device.
-                    </p>
+                    <p class="note">Describes the proposed concept, not a clinically validated diagnostic device.</p>
                 </article>
 
-                <!-- E-BARANGAY -->
                 <article class="card project-card">
                     <div class="card-icon">🏘️</div>
                     <div class="project-label">Academic Project</div>
-
                     <h3>E-Barangay</h3>
-
                     <p>
-                        A proposed web-based barangay information and
-                        complaint management system designed to help
-                        residents access community announcements and
-                        submit concerns through a digital platform.
+                        A proposed web-based barangay information and complaint management
+                        platform intended to help residents access announcements and submit
+                        community concerns digitally.
                     </p>
-
                     <h4>Proposed Features</h4>
-
-                    <ul>
+                    <ul class="details">
                         <li>Community announcements and event information.</li>
-                        <li>Resident complaint and suggestion submissions.</li>
-                        <li>Optional photo or video attachments for reports.</li>
-                        <li>AI-assisted complaint categorization concepts.</li>
-                        <li>Admin dashboard for sorting and monitoring reports.</li>
+                        <li>Resident complaints and suggestion submissions.</li>
+                        <li>Optional photo or video attachments.</li>
+                        <li>Complaint categorization and admin dashboard concepts.</li>
                     </ul>
-
                     <h4>Technology Areas</h4>
-
-                    <div class="tech-stack">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>Database Concepts</span>
-                        <span>AI Concepts</span>
+                    <div class="tech">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        <span>Database Concepts</span><span>AI Concepts</span>
                     </div>
-
                     <div class="project-footer">
-                        <a class="btn btn-outline"
-                           href="https://github.com/marclawrence9"
-                           target="_blank"
-                           rel="noopener noreferrer">
-                            GitHub Profile ↗
-                        </a>
+                        <a class="btn btn-outline" href="https://github.com/marclawrence9" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
                     </div>
-
-                    <p class="notice">
-                        Project concept: listed features describe the
-                        proposal and do not imply that the system is deployed.
-                    </p>
+                    <p class="note">Listed features describe the project concept and do not imply that it is deployed.</p>
                 </article>
-
             </div>
         </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="section" id="skills">
+    <section id="skills">
         <div class="container">
-
-            <div class="section-heading">
-                <div class="eyebrow">My Skill Set</div>
-                <h2>Tools I'm <span class="gradient-text">Learning and Using.</span></h2>
-                <p>
-                    Technical skills and technology areas connected
-                    to my studies, projects, and professional development.
-                </p>
+            <div class="section-title">
+                <small>My Skill Set</small>
+                <h2>Tools I'm <span class="gradient">Learning and Using.</span></h2>
+                <p>Technical skills and technology areas connected to my studies and projects.</p>
             </div>
 
-            <div class="skills-grid">
-
+            <div class="grid three-col">
                 <article class="card skill-card">
                     <div class="card-icon">🌐</div>
                     <h3>Web Development</h3>
-                    <p>
-                        Building the structure, appearance, and basic
-                        interactions of websites.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
+                    <p>Building website structure, design, and basic interactions.</p>
+                    <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
                 </article>
-
                 <article class="card skill-card">
                     <div class="card-icon">⚙️</div>
                     <h3>Computer Engineering</h3>
-                    <p>
-                        Exploring the relationship between computing systems,
-                        electronics, hardware, and software.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>Hardware Concepts</span>
-                        <span>System Design</span>
-                        <span>Troubleshooting</span>
-                    </div>
+                    <p>Exploring computing systems, electronics, hardware, and software.</p>
+                    <div class="tech"><span>Hardware Concepts</span><span>System Design</span><span>Troubleshooting</span></div>
                 </article>
-
                 <article class="card skill-card">
                     <div class="card-icon">🤖</div>
                     <h3>AI &amp; Automation</h3>
-                    <p>
-                        Learning about AI-assisted analysis, computer vision,
-                        and sensor-based project concepts.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>AI/ML Concepts</span>
-                        <span>OpenCV</span>
-                        <span>ESP32 Concepts</span>
-                    </div>
+                    <p>Learning AI-assisted analysis, computer vision, and sensor-based systems.</p>
+                    <div class="tech"><span>AI/ML Concepts</span><span>OpenCV</span><span>ESP32 Concepts</span></div>
                 </article>
-
             </div>
         </div>
     </section>
 
     <!-- EDUCATION -->
-    <section class="section" id="education">
+    <section id="education">
         <div class="container">
-
-            <div class="section-heading">
-                <div class="eyebrow">Education</div>
-                <h2>My <span class="gradient-text">Academic Journey.</span></h2>
-                <p>
-                    Building a foundation in computing, engineering,
-                    and technical problem-solving.
-                </p>
+            <div class="section-title">
+                <small>Education</small>
+                <h2>My <span class="gradient">Academic Journey.</span></h2>
+                <p>Building a foundation in computing, engineering, and technical problem-solving.</p>
             </div>
 
             <article class="card education-card">
                 <div class="education-icon">🎓</div>
-
                 <div>
                     <h3>Bachelor's Degree in Computer Engineering</h3>
                     <div class="school">ICCT Colleges</div>
-
                     <p>
-                        Fourth-year student developing knowledge and
-                        practical skills in computer systems, software,
-                        hardware, and academic project development.
+                        Fourth-year student developing knowledge and practical skills
+                        in computer systems, software, hardware, and academic projects.
                     </p>
                 </div>
             </article>
-
         </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section id="contact">
         <div class="container">
-
-            <div class="section-heading">
-                <div class="eyebrow">Get In Touch</div>
-                <h2>Let's Connect and <span class="gradient-text">Build Something.</span></h2>
-                <p>
-                    Interested in my academic projects, technical interests,
-                    or professional experience? Feel free to reach out.
-                </p>
+            <div class="section-title">
+                <small>Get In Touch</small>
+                <h2>Let's Connect and <span class="gradient">Build Something.</span></h2>
+                <p>Interested in my projects, technical interests, or work experience? Feel free to reach out.</p>
             </div>
 
             <article class="card contact-card">
-                <div class="card-icon">📬</div>
-
+                <div class="card-icon">✉️</div>
                 <h3>Thanks for Visiting My Portfolio!</h3>
-
-                <p>
-                    I'm continuing to learn and improve as a Computer
-                    Engineering student while gaining practical
-                    professional experience.
-                </p>
-
-                <p class="email-text">
-                    marclawrencecastaneda9@gmail.com
-                </p>
-
+                <p>I'm continuing to grow as a Computer Engineering student and develop practical technical skills.</p>
+                <div class="email">marclawrencecastaneda9@gmail.com</div>
                 <div class="contact-buttons">
-                    <a class="btn btn-primary"
-                       href="mailto:marclawrencecastaneda9@gmail.com">
-                        ✉ Email Me
-                    </a>
-
-                    <a class="btn btn-outline"
-                       href="https://github.com/marclawrence9"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        GitHub Profile ↗
-                    </a>
+                    <a class="btn btn-primary" href="mailto:marclawrencecastaneda9@gmail.com">✉ Email Me</a>
+                    <a class="btn btn-outline" href="https://github.com/marclawrence9" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
                 </div>
             </article>
-
         </div>
     </section>
-
 </main>
 
 <footer>
     <div class="container">
-        <p>
-            © <span id="year"></span> Marc Lawrence Castañeda.
-            Built with HTML, CSS, and JavaScript.
-        </p>
-        <p>Designed with a cosmic engineering theme ✦</p>
+        <p>© <span id="year"></span> Marc Lawrence Castañeda. Built with HTML, CSS, and JavaScript.</p>
+        <p>Designed with a multiverse-inspired mindset ✦</p>
         <p><a href="#home">Back to Top ↑</a></p>
     </div>
 </footer>
 
 <script>
-    // Automatically update the copyright year.
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile navigation toggle.
+    // Responsive mobile menu
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", function () {
+    menuToggle.addEventListener("click", () => {
         const isOpen = navLinks.classList.toggle("open");
-
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         menuToggle.textContent = isOpen ? "✕" : "☰";
     });
 
-    // Close the mobile menu after selecting a section.
-    navLinks.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
+    // Close the menu after selecting a section
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
             navLinks.classList.remove("open");
             menuToggle.setAttribute("aria-expanded", "false");
             menuToggle.textContent = "☰";
