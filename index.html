@@ -1,0 +1,1324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b18">
+
+  <title>Marc Lawrence Castañeda | Computer Engineering Portfolio</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Marc Lawrence Castañeda, a fourth-year Computer Engineering student at ICCT Colleges, featuring AuraGuard AI and E-Barangay."
+  >
+
+  <style>
+    /* =========================
+       1. GLOBAL SETTINGS
+    ========================= */
+    :root {
+      --bg: #080b18;
+      --bg-soft: #0e1428;
+      --card: rgba(19, 27, 49, 0.78);
+      --text: #f3f6ff;
+      --muted: #a8b2ca;
+      --cyan: #38d9ff;
+      --purple: #a78bfa;
+      --orange: #ffad42;
+      --border: rgba(160, 184, 255, 0.17);
+      --radius: 20px;
+      --max-width: 1120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(56, 217, 255, 0.09), transparent 32%),
+        radial-gradient(ellipse at 85% 25%, rgba(167, 139, 250, 0.12), transparent 32%),
+        var(--bg);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .section-heading {
+      margin-bottom: 42px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--cyan), var(--purple), var(--orange));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      border-color: var(--cyan);
+      box-shadow: 0 0 25px rgba(56, 217, 255, 0.13);
+    }
+
+    .button-primary {
+      color: #07111d;
+      border: none;
+      background: linear-gradient(100deg, var(--cyan), #80f0ff);
+    }
+
+    .button-primary:hover {
+      color: #07111d;
+      box-shadow: 0 0 30px rgba(56, 217, 255, 0.3);
+    }
+
+    .button-small {
+      padding: 9px 13px;
+      font-size: 0.87rem;
+    }
+
+    /* =========================
+       2. NAVIGATION
+    ========================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 11, 24, 0.86);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--cyan);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       3. HERO
+    ========================= */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+      padding: 90px 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 370px;
+      height: 370px;
+      border-radius: 50%;
+      border: 1px solid rgba(56, 217, 255, 0.16);
+      right: 4%;
+      top: 16%;
+      box-shadow:
+        0 0 0 28px rgba(56, 217, 255, 0.025),
+        0 0 0 60px rgba(167, 139, 250, 0.025),
+        inset 0 0 60px rgba(56, 217, 255, 0.06);
+      z-index: -1;
+      animation: orbit 18s linear infinite;
+    }
+
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      right: 15%;
+      top: 24%;
+      font-size: 2rem;
+      color: var(--orange);
+      text-shadow: 0 0 25px var(--orange);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 12px #4ade80;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 .name {
+      display: block;
+      font-size: 0.49em;
+      letter-spacing: 0;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 38px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.025);
+      color: #c8d3ed;
+      font-size: 0.83rem;
+    }
+
+    /* =========================
+       4. ABOUT
+    ========================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    .panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .highlight {
+      color: var(--cyan);
+      font-weight: 700;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .info-icon {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: rgba(56, 217, 255, 0.09);
+      border: 1px solid rgba(56, 217, 255, 0.18);
+      border-radius: 10px;
+    }
+
+    .info-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    /* =========================
+       5. PROJECTS
+    ========================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: linear-gradient(
+        145deg,
+        rgba(21, 31, 58, 0.95),
+        rgba(12, 17, 34, 0.96)
+      );
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 217, 255, 0.55);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 180px;
+      height: 180px;
+      background: var(--glow, rgba(56, 217, 255, 0.1));
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .project-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 1.8rem;
+      background: rgba(56, 217, 255, 0.1);
+      border: 1px solid rgba(56, 217, 255, 0.2);
+    }
+
+    .project-status {
+      color: var(--orange);
+      border: 1px solid rgba(255, 173, 66, 0.28);
+      background: rgba(255, 173, 66, 0.08);
+      border-radius: 30px;
+      padding: 5px 10px;
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 11px;
+    }
+
+    .project-card > p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .project-card h4 {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      color: #dce7ff;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
+
+    .feature-list li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 25px;
+    }
+
+    .tech-stack span {
+      color: #d6def2;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 5px 9px;
+      font-size: 0.78rem;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .project-note {
+      font-size: 0.8rem;
+      color: #8290ad;
+      margin-top: 18px;
+    }
+
+    /* =========================
+       6. SKILLS
+    ========================= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .skill-card .skill-symbol {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .skill-tags span {
+      font-size: 0.8rem;
+      color: var(--cyan);
+      background: rgba(56, 217, 255, 0.07);
+      border-radius: 7px;
+      padding: 5px 9px;
+    }
+
+    /* =========================
+       7. EDUCATION
+    ========================= */
+    .education-card {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 22px;
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .education-icon {
+      width: 65px;
+      height: 65px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 1.8rem;
+      background: linear-gradient(
+        140deg,
+        rgba(56, 217, 255, 0.15),
+        rgba(167, 139, 250, 0.15)
+      );
+    }
+
+    .education-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .education-card .school {
+      color: var(--cyan);
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       8. CONTACT
+    ========================= */
+    .contact-box {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 45px 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(56, 217, 255, 0.12), transparent 45%),
+        radial-gradient(circle at 100% 100%, rgba(167, 139, 250, 0.14), transparent 45%),
+        var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+    }
+
+    .contact-box h3 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      margin-bottom: 14px;
+    }
+
+    .contact-box p {
+      max-width: 580px;
+      margin: 0 auto 25px;
+      color: var(--muted);
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================
+       9. FOOTER
+    ========================= */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    /* =========================
+       10. ANIMATIONS
+    ========================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes orbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.65; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+
+    /* =========================
+       11. MOBILE RESPONSIVENESS
+    ========================= */
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: 0.84rem;
+      }
+
+      .hero::before {
+        width: 260px;
+        height: 260px;
+        right: -90px;
+        top: 25%;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .nav-inner {
+        min-height: 66px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: rgba(8, 11, 24, 0.98);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 0;
+        font-size: 1rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 90px 0 70px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero::before {
+        width: 190px;
+        height: 190px;
+        right: -100px;
+        top: 20%;
+      }
+
+      .hero::after {
+        right: 8%;
+        top: 16%;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel,
+      .project-card {
+        padding: 23px;
+      }
+
+      .education-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .contact-box {
+        padding: 32px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home" aria-label="Marc's portfolio home">
+        MARC<span>.DEV</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        ☰
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="status">
+            <span class="status-dot"></span>
+            Computer Engineering Student
+          </div>
+
+          <h1>
+            <span class="name">Hi, I'm Marc Lawrence Castañeda.</span>
+            Building ideas into
+            <span class="gradient-text">real solutions.</span>
+          </h1>
+
+          <p class="hero-description">
+            I'm a fourth-year Computer Engineering student at ICCT Colleges
+            interested in web development, hardware, automation, and
+            technology-driven solutions to real-world problems.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">
+              Explore My Projects <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="button"
+              href="https://github.com/marclawrence9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero-tags" aria-label="Areas of interest">
+            <span class="tag">HTML & CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">AI Concepts</span>
+            <span class="tag">Computer Engineering</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">About Me</span>
+          <h2>Curiosity meets <span class="gradient-text">engineering.</span></h2>
+          <p>
+            Learning how software and hardware can work together to solve
+            practical problems.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel reveal">
+            <h3>Who I Am</h3>
+            <p>
+              I'm <span class="highlight">Marc Lawrence Castañeda</span>,
+              a fourth-year Computer Engineering student at ICCT Colleges.
+              I am building my skills through academic work, programming
+              practice, and project development.
+            </p>
+            <p>
+              My interests include creating websites, exploring AI-assisted
+              systems, understanding hardware integration, and designing
+              useful digital tools for communities and education.
+            </p>
+            <p>
+              My goal is to keep learning, improve my technical skills, and
+              turn project ideas into solutions that are useful, reliable,
+              and accessible.
+            </p>
+          </article>
+
+          <aside class="panel reveal">
+            <h3>Quick Information</h3>
+            <ul class="info-list">
+              <li>
+                <span class="info-icon" aria-hidden="true">🎓</span>
+                <div>
+                  <strong>Education</strong>
+                  Fourth-year Computer Engineering student
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">🏫</span>
+                <div>
+                  <strong>School</strong>
+                  ICCT Colleges
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">💻</span>
+                <div>
+                  <strong>Web Development</strong>
+                  HTML, CSS, and JavaScript
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">🚀</span>
+                <div>
+                  <strong>Current Focus</strong>
+                  Academic projects and practical technical skills
+                </div>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Selected Work</span>
+          <h2>Projects from <span class="gradient-text">ideas to impact.</span></h2>
+          <p>
+            Academic project concepts focused on wellness technology,
+            community services, and intelligent digital systems.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- PROJECT 1: AURAGUARD AI -->
+          <article
+            class="project-card reveal"
+            style="--glow: rgba(56, 217, 255, 0.17);"
+          >
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🧠</div>
+              <span class="project-status">Academic Project</span>
+            </div>
+
+            <h3>AuraGuard AI</h3>
+
+            <p>
+              A proposed AI-assisted wellness monitoring system for modern
+              educational environments. It explores how camera-based
+              observations, thermal sensing, and pulse-related signals could
+              support wellness screening and trend monitoring.
+            </p>
+
+            <h4>Proposed Features</h4>
+            <ul class="feature-list">
+              <li>Camera-based facial and behavioral feature analysis</li>
+              <li>Blink, yawning, and possible fatigue indicators</li>
+              <li>Thermal and PPG sensor data collection concepts</li>
+              <li>AI-assisted risk grouping and wellness trend review</li>
+              <li>Dashboard, data records, and alerts concept</li>
+            </ul>
+
+            <h4>Technology Areas</h4>
+            <div class="tech-stack">
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>MediaPipe</span>
+              <span>ESP32</span>
+              <span>AI/ML</span>
+              <span>Sensor Integration</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="button button-primary button-small"
+                href="assets/AuraGuard_AI_Final_Components_Buying_List.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Components List ↗
+              </a>
+
+              <a class="button button-small" href="#contact">
+                Ask About Project
+              </a>
+            </div>
+
+            <p class="project-note">
+              Project concept: proposed capabilities are not represented as
+              completed or clinically validated features. This is not a
+              medical diagnostic device.
+            </p>
+          </article>
+
+          <!-- PROJECT 2: E-BARANGAY -->
+          <article
+            class="project-card reveal"
+            style="--glow: rgba(167, 139, 250, 0.19);"
+          >
+            <div class="project-top">
+              <div
+                class="project-icon"
+                aria-hidden="true"
+                style="background: rgba(167, 139, 250, 0.12);"
+              >
+                🏘️
+              </div>
+              <span class="project-status">Academic Project</span>
+            </div>
+
+            <h3>E-Barangay</h3>
+
+            <p>
+              A proposed web-based barangay information and complaint
+              management system designed to help residents access community
+              announcements and submit concerns through a digital platform.
+            </p>
+
+            <h4>Proposed Features</h4>
+            <ul class="feature-list">
+              <li>Community announcements and event information</li>
+              <li>Resident complaint and suggestion submissions</li>
+              <li>Optional photo or video attachments for reports</li>
+              <li>AI-assisted complaint categorization and priority review</li>
+              <li>Admin dashboard for sorting and monitoring reports</li>
+            </ul>
+
+            <h4>Technology Areas</h4>
+            <div class="tech-stack">
+              <span>Web Development</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Database Concepts</span>
+              <span>AI Concepts</span>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="button button-primary button-small"
+                href="assets/E-BARANGAY.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Project PDF ↗
+              </a>
+
+              <a class="button button-small" href="#contact">
+                Ask About Project
+              </a>
+            </div>
+
+            <p class="project-note">
+              Project concept: listed features describe the proposal and
+              should not be interpreted as proof that the system is deployed.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">My Skill Set</span>
+          <h2>Tools I'm <span class="gradient-text">learning and using.</span></h2>
+          <p>
+            A growing collection of skills and technology areas connected
+            to my studies and project interests.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-symbol" aria-hidden="true">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Building the structure, appearance, and basic interactions
+              of websites.
+            </p>
+            <div class="skill-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-symbol" aria-hidden="true">⚙️</div>
+            <h3>Computer Engineering</h3>
+            <p>
+              Exploring the relationship between computing systems,
+              electronics, and software.
+            </p>
+            <div class="skill-tags">
+              <span>Hardware Concepts</span>
+              <span>System Design</span>
+              <span>Troubleshooting</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-symbol" aria-hidden="true">🤖</div>
+            <h3>AI & Automation</h3>
+            <p>
+              Learning about AI-assisted analysis, computer vision,
+              and sensor-based project concepts.
+            </p>
+            <div class="skill-tags">
+              <span>AI/ML Concepts</span>
+              <span>OpenCV</span>
+              <span>ESP32 Concepts</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Education</span>
+          <h2>My <span class="gradient-text">academic journey.</span></h2>
+          <p>
+            Building a foundation in computing, engineering, and technical
+            problem-solving.
+          </p>
+        </div>
+
+        <article class="education-card reveal">
+          <div class="education-icon" aria-hidden="true">🎓</div>
+          <div>
+            <h3>Bachelor's Degree in Computer Engineering</h3>
+            <p class="school">ICCT Colleges</p>
+            <p>
+              Fourth-year student developing knowledge and practical
+              experience in computer systems, software, hardware, and
+              academic project development.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Get In Touch</span>
+          <h2>Let's connect and <span class="gradient-text">build something.</span></h2>
+          <p>
+            Interested in my academic projects or want to connect about
+            technology and development? Visit my GitHub profile.
+          </p>
+        </div>
+
+        <div class="contact-box reveal">
+          <h3>Thanks for visiting my portfolio!</h3>
+          <p>
+            I'm continuing to learn and improve as a Computer Engineering
+            student. You can explore my code and projects on GitHub.
+          </p>
+
+          <div class="contact-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/marclawrence9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit My GitHub ↗
+            </a>
+
+            <a class="button" href="#home">
+              Back to Top ↑
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Marc Lawrence Castañeda.
+        Built with HTML, CSS, and JavaScript.
+      </p>
+      <p style="margin-top: 5px;">
+        Designed with a cosmic engineering theme ✦
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // =========================
+    // MOBILE NAVIGATION
+    // =========================
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close mobile menu when a link is selected.
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // =========================
+    // AUTOMATIC FOOTER YEAR
+    // =========================
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // =========================
+    // SCROLL REVEAL ANIMATION
+    // =========================
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+
+    // =========================
+    // ACTIVE NAVIGATION LINK
+    // =========================
+    const pageSections = document.querySelectorAll("main section[id]");
+    const navItems = navLinks.querySelectorAll("a");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navItems.forEach((item) => {
+                const active = item.getAttribute("href") ===
+                  "#" + entry.target.id;
+
+                item.classList.toggle("active", active);
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-35% 0px -55% 0px"
+        }
+      );
+
+      pageSections.forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    }
+  </script>
+</body>
+</html>
