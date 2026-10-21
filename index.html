@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080713">
-  <meta name="description" content="Marc Lawrence Castaneda - Computer Engineering Student Portfolio">
+  <meta name="description" content="Marc Lawrence Castañeda - Computer Engineering Student Portfolio">
   <title>Marc Lawrence | Multiverse Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,13 +15,13 @@
   <style>
     :root {
       --bg: #080713;
-      --panel: rgba(22, 16, 39, 0.84);
+      --panel: rgba(22, 16, 39, .88);
       --red: #ff304f;
       --purple: #a855f7;
       --blue: #39c5ff;
       --white: #f7f3ff;
       --muted: #b9b1cd;
-      --border: rgba(168, 85, 247, 0.30);
+      --border: rgba(168, 85, 247, .3);
     }
 
     * {
@@ -32,7 +32,7 @@
     }
 
     body {
-      font-family: 'Rajdhani', sans-serif;
+      font-family: "Rajdhani", sans-serif;
       background: var(--bg);
       color: var(--white);
       overflow-x: hidden;
@@ -43,7 +43,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -3;
+      z-index: -2;
       pointer-events: none;
       background:
         radial-gradient(ellipse at 15% 15%, rgba(168,85,247,.17), transparent 35%),
@@ -56,7 +56,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      z-index: -2;
+      z-index: -1;
       pointer-events: none;
     }
 
@@ -75,13 +75,13 @@
     }
 
     .section {
-      padding: 100px 0;
+      padding: 90px 0;
       scroll-margin-top: 80px;
     }
 
     .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
       text-align: center;
       margin-bottom: 12px;
     }
@@ -94,19 +94,19 @@
     .section-subtitle {
       color: var(--muted);
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
       font-size: 1.15rem;
     }
 
-    /* Navigation */
+    /* NAVIGATION */
 
     header {
       position: fixed;
-      width: 100%;
       top: 0;
       left: 0;
+      width: 100%;
       z-index: 100;
-      background: rgba(8, 7, 19, .88);
+      background: rgba(8,7,19,.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -120,10 +120,11 @@
     }
 
     .logo {
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Orbitron", sans-serif;
       font-size: 1rem;
       font-weight: 800;
       letter-spacing: 1px;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -133,7 +134,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 22px;
       list-style: none;
     }
 
@@ -141,7 +142,7 @@
       color: var(--muted);
       font-size: 1.05rem;
       font-weight: 600;
-      transition: .3s;
+      transition: color .3s;
     }
 
     .nav-links a:hover {
@@ -159,7 +160,7 @@
       cursor: pointer;
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
       min-height: 100vh;
@@ -190,9 +191,9 @@
     }
 
     .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-      line-height: 1.15;
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2.1rem, 5.5vw, 4.5rem);
+      line-height: 1.2;
       margin-bottom: 15px;
       overflow-wrap: anywhere;
     }
@@ -229,7 +230,8 @@
       font-weight: 700;
       font-size: 1.05rem;
       border: 1px solid var(--red);
-      transition: transform .3s, box-shadow .3s, background .3s;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -248,7 +250,7 @@
       box-shadow: 0 0 25px rgba(255,48,79,.35);
     }
 
-    /* Original mystical portal artwork */
+    /* MYSTICAL PORTAL */
 
     .portal-area {
       min-height: 380px;
@@ -267,7 +269,7 @@
       background: repeating-conic-gradient(
         from 0deg,
         transparent 0deg 7deg,
-        rgba(255, 112, 36, .85) 8deg 9deg,
+        rgba(255,112,36,.85) 8deg 9deg,
         transparent 10deg 18deg
       );
       animation: portalSpin 28s linear infinite;
@@ -280,9 +282,8 @@
       inset: 12px;
       border-radius: 50%;
       border: 3px solid #ff7a32;
-      box-shadow:
-        0 0 15px #ff522d,
-        inset 0 0 20px rgba(255,80,45,.6);
+      box-shadow: 0 0 15px #ff522d,
+                  inset 0 0 20px rgba(255,80,45,.6);
     }
 
     .portal::after {
@@ -307,13 +308,12 @@
         radial-gradient(circle, #28103f 0%, #10091f 65%, #080713 100%);
       border: 1px solid rgba(168,85,247,.6);
       box-shadow: 0 0 45px rgba(168,85,247,.3);
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Orbitron", sans-serif;
       text-align: center;
     }
 
     .portal-core strong {
       font-size: clamp(2.4rem, 6vw, 4rem);
-      color: var(--white);
       text-shadow: 0 0 20px var(--purple);
     }
 
@@ -329,11 +329,11 @@
       inset: 0;
       border: 1px solid rgba(57,197,255,.24);
       border-radius: 50%;
-      transform: scale(1.2, .48) rotate(35deg);
+      transform: scale(1.2,.48) rotate(35deg);
     }
 
     .orbit-two {
-      transform: scale(1.2, .48) rotate(-35deg);
+      transform: scale(1.2,.48) rotate(-35deg);
       border-color: rgba(168,85,247,.4);
     }
 
@@ -341,9 +341,10 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Cards */
+    /* CARDS */
 
-    .about-grid, .experience-grid {
+    .about-grid,
+    .experience-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
@@ -360,11 +361,11 @@
     .card:hover {
       transform: translateY(-6px);
       border-color: var(--purple);
-      box-shadow: 0 10px 35px rgba(113,46,175,.12);
+      box-shadow: 0 10px 35px rgba(113,46,175,.2);
     }
 
     .card h3 {
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Orbitron", sans-serif;
       font-size: 1.15rem;
       margin-bottom: 14px;
     }
@@ -379,7 +380,7 @@
       margin-bottom: 13px;
     }
 
-    /* Skills */
+    /* SKILLS */
 
     .skills-grid {
       display: grid;
@@ -402,7 +403,7 @@
     }
 
     .skill .symbol {
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Orbitron", sans-serif;
       font-size: 1.5rem;
       font-weight: 800;
       color: var(--blue);
@@ -410,10 +411,10 @@
     }
 
     .skill h3 {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
-    /* Projects */
+    /* PROJECTS */
 
     .projects-grid {
       display: grid;
@@ -432,15 +433,15 @@
     .project-card:hover {
       transform: translateY(-7px);
       border-color: var(--red);
-      box-shadow: 0 12px 35px rgba(255,48,79,.1);
+      box-shadow: 0 12px 35px rgba(255,48,79,.15);
     }
 
     .project-art {
       min-height: 180px;
       display: grid;
       place-items: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.3rem;
+      font-family: "Orbitron", sans-serif;
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: 3px;
       text-align: center;
@@ -462,7 +463,7 @@
     }
 
     .project-content h3 {
-      font-family: 'Orbitron', sans-serif;
+      font-family: "Orbitron", sans-serif;
       font-size: 1.2rem;
       margin-bottom: 12px;
     }
@@ -498,7 +499,7 @@
       color: white;
     }
 
-    /* Experience */
+    /* WORK EXPERIENCE */
 
     .experience-card {
       border-left: 3px solid var(--red);
@@ -516,7 +517,22 @@
       font-size: .98rem;
     }
 
-    /* Contact */
+    .experience-card .experience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .experience-tags span {
+      color: #ffd5a8;
+      border: 1px solid rgba(255,157,66,.4);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: .85rem;
+    }
+
+    /* CONTACT */
 
     .contact-box {
       max-width: 760px;
@@ -547,14 +563,13 @@
       padding: 25px 15px;
       color: var(--muted);
       border-top: 1px solid var(--border);
-      font-size: 1rem;
     }
 
     footer span {
       color: var(--red);
     }
 
-    /* Scroll reveal */
+    /* ANIMATIONS */
 
     .reveal {
       opacity: 0;
@@ -581,7 +596,7 @@
       }
     }
 
-    /* Mobile */
+    /* RESPONSIVE DESIGN */
 
     @media (max-width: 800px) {
       .menu-toggle {
@@ -641,15 +656,11 @@
 
     @media (max-width: 380px) {
       .logo {
-        font-size: .82rem;
+        font-size: .78rem;
       }
 
       .hero h1 {
         font-size: 2rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
       }
     }
   </style>
@@ -663,7 +674,8 @@
       <a class="logo" href="#home">MARC<span>.MULTIVERSE</span></a>
 
       <button class="menu-toggle" id="menuToggle"
-        aria-label="Toggle navigation" aria-expanded="false"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
         aria-controls="navLinks">☰</button>
 
       <ul class="nav-links" id="navLinks">
@@ -678,7 +690,7 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- HOME -->
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="reveal">
@@ -692,24 +704,24 @@
           <h2>Computer Engineering Student</h2>
 
           <p>
-            Exploring the intersection of technology, creativity, and
-            innovation. I am a fourth-year Computer Engineering student
-            at ICCT Colleges, building projects and developing skills
-            for the world of technology.
+            Exploring the intersection of technology, creativity,
+            and innovation. I am a fourth-year Computer Engineering
+            student at ICCT Colleges, developing projects and
+            building skills for the world of technology.
           </p>
 
           <div class="buttons">
             <a href="#projects" class="btn btn-primary">
               Explore My Projects
             </a>
-
             <a href="#contact" class="btn btn-outline">
               Contact Me
             </a>
           </div>
         </div>
 
-        <div class="portal-area reveal" aria-label="Animated mystical portal">
+        <div class="portal-area reveal"
+          aria-label="Animated mystical portal">
           <div class="portal">
             <div class="portal-core">
               <div>
@@ -768,8 +780,8 @@
             <h3>The Multiverse Mindset</h3>
             <p>
               Every challenge is an opportunity to discover a new
-              solution. I approach learning with curiosity and a
-              willingness to improve.
+              solution. I approach learning with curiosity and
+              a willingness to improve.
             </p>
           </article>
         </div>
@@ -819,7 +831,7 @@
         <div class="projects-grid">
           <article class="project-card reveal">
             <div class="project-art" aria-hidden="true">
-              <span>AURAGUARD<br>AI</span>
+              AURAGUARD<br>AI
             </div>
 
             <div class="project-content">
@@ -827,8 +839,8 @@
               <p>
                 An AI-focused engineering project designed around
                 intelligent technology and practical applications.
-                Explore the project's documentation for its full
-                components, design, and implementation details.
+                Explore the project documentation for its components,
+                design, and implementation details.
               </p>
 
               <div class="tags">
@@ -837,7 +849,6 @@
                 <span class="tag">Innovation</span>
               </div>
 
-              <!-- Replace # with your actual project repository URL -->
               <a class="project-link" href="#contact">
                 Project Information ↗
               </a>
@@ -846,15 +857,15 @@
 
           <article class="project-card reveal">
             <div class="project-art" aria-hidden="true">
-              <span>E-BARANGAY</span>
+              E-BARANGAY
             </div>
 
             <div class="project-content">
               <h3>E-Barangay</h3>
               <p>
-                A digital barangay project focused on bringing
-                community-related information and services into a
-                more accessible digital environment.
+                A digital barangay project focused on making
+                community-related information and services more
+                accessible through a digital environment.
               </p>
 
               <div class="tags">
@@ -863,7 +874,6 @@
                 <span class="tag">Community</span>
               </div>
 
-              <!-- Replace # with your actual project repository URL -->
               <a class="project-link" href="#contact">
                 Project Information ↗
               </a>
@@ -873,37 +883,53 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- WORK EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
         <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
         <p class="section-subtitle">
-          Experience beyond the classroom.
+          Professional experience beyond the classroom.
         </p>
 
         <div class="experience-grid">
+          <!-- Healthy Options -->
           <article class="card experience-card reveal">
             <div class="card-icon">📋</div>
             <h3>Encoder</h3>
             <p class="role">Healthy Options</p>
             <p class="date">Work Experience</p>
+
             <p>
-              Experience in data encoding and information handling,
-              with an emphasis on accuracy, organization, attention
-              to detail, and completing assigned tasks responsibly.
+              Handled encoding tasks with an emphasis on accurate
+              data entry, organized information, attention to detail,
+              and responsible completion of assigned tasks.
             </p>
+
+            <div class="experience-tags">
+              <span>Data Encoding</span>
+              <span>Accuracy</span>
+              <span>Organization</span>
+            </div>
           </article>
 
+          <!-- Extra Joss -->
           <article class="card experience-card reveal">
-            <div class="card-icon">⚙️</div>
-            <h3>Engineering Projects</h3>
-            <p class="role">Academic & Personal Development</p>
-            <p class="date">Computer Engineering</p>
+            <div class="card-icon">📦</div>
+            <h3>Encoder and Packer</h3>
+            <p class="role">Extra Joss</p>
+            <p class="date">Work Experience</p>
+
             <p>
-              Developing technical knowledge through academic work,
-              project planning, research, and hands-on exploration
-              of technology.
+              Performed encoding and packing tasks, maintained
+              attention to detail, organized products, and supported
+              efficient completion of assigned work.
             </p>
+
+            <div class="experience-tags">
+              <span>Data Encoding</span>
+              <span>Packing</span>
+              <span>Teamwork</span>
+            </div>
           </article>
         </div>
       </div>
@@ -920,6 +946,7 @@
         <div class="contact-box reveal">
           <div class="card-icon">✉️</div>
           <h3>Have a project in mind?</h3>
+
           <p>
             Feel free to reach out for project discussions,
             collaboration, or professional opportunities.
@@ -934,12 +961,6 @@
             <a class="btn btn-primary"
                href="mailto:marclawrencecastaneda9@gmail.com">
               Send Me an Email
-            </a>
-
-            <a class="btn btn-outline"
-               href="https://github.com/marclawrence9"
-               target="_blank" rel="noopener noreferrer">
-              Visit My GitHub
             </a>
           </div>
         </div>
@@ -973,15 +994,15 @@
       });
     });
 
-    // Automatically update the footer year
+    // Automatically update footer year
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    // Reveal elements as they enter the viewport
+    // Reveal sections when they enter the viewport
     const revealElements = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
@@ -1005,6 +1026,11 @@
     let width = 0;
     let height = 0;
     let animationFrame;
+    let isPaused = false;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
     function createStars() {
       width = window.innerWidth;
@@ -1034,6 +1060,8 @@
     }
 
     function drawStars() {
+      if (isPaused || reducedMotion) return;
+
       ctx.clearRect(0, 0, width, height);
 
       stars.forEach(star => {
@@ -1053,26 +1081,27 @@
       animationFrame = requestAnimationFrame(drawStars);
     }
 
-    createStars();
-    drawStars();
-
-    window.addEventListener("resize", createStars);
-
-    // Reduce unnecessary animation when the tab is hidden
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        cancelAnimationFrame(animationFrame);
-      } else {
+    function startAnimation() {
+      if (!reducedMotion && !isPaused) {
         cancelAnimationFrame(animationFrame);
         drawStars();
       }
+    }
+
+    createStars();
+    startAnimation();
+
+    window.addEventListener("resize", () => {
+      createStars();
+      startAnimation();
     });
 
-    // Respect users who prefer reduced motion
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.addEventListener("visibilitychange", () => {
+      isPaused = document.hidden;
       cancelAnimationFrame(animationFrame);
-      ctx.clearRect(0, 0, width, height);
-    }
+
+      if (!isPaused) startAnimation();
+    });
   </script>
 </body>
 </html>
