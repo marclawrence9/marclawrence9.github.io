@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080713">
+  <meta name="description" content="Marc Lawrence Castaneda - Computer Engineering Student Portfolio">
+  <title>Marc Lawrence | Multiverse Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080713;
+      --panel: rgba(22, 16, 39, 0.84);
+      --red: #ff304f;
+      --purple: #a855f7;
+      --blue: #39c5ff;
+      --white: #f7f3ff;
+      --muted: #b9b1cd;
+      --border: rgba(168, 85, 247, 0.30);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(168,85,247,.17), transparent 35%),
+        radial-gradient(ellipse at 85% 35%, rgba(255,48,79,.12), transparent 32%),
+        radial-gradient(ellipse at 50% 95%, rgba(57,197,255,.09), transparent 38%);
+    }
+
+    #stars {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: var(--red);
+      text-shadow: 0 0 18px rgba(255,48,79,.5);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 45px;
+      font-size: 1.15rem;
+    }
+
+    /* Navigation */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: rgba(8, 7, 19, .88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--red);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 125px 0 75px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      border: 1px solid rgba(57,197,255,.4);
+      background: rgba(57,197,255,.06);
+      border-radius: 30px;
+      padding: 6px 15px;
+      letter-spacing: 2px;
+      font-size: .9rem;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--red);
+      text-shadow: 0 0 25px rgba(255,48,79,.38);
+    }
+
+    .hero h2 {
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      color: var(--purple);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border: 1px solid var(--red);
+      transition: transform .3s, box-shadow .3s, background .3s;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      box-shadow: 0 0 18px rgba(255,48,79,.23);
+    }
+
+    .btn-outline {
+      color: white;
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(255,48,79,.35);
+    }
+
+    /* Original mystical portal artwork */
+
+    .portal-area {
+      min-height: 380px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .portal {
+      width: min(310px, 72vw);
+      aspect-ratio: 1;
+      position: relative;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg 7deg,
+        rgba(255, 112, 36, .85) 8deg 9deg,
+        transparent 10deg 18deg
+      );
+      animation: portalSpin 28s linear infinite;
+      filter: drop-shadow(0 0 12px rgba(255,80,35,.35));
+    }
+
+    .portal::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      border: 3px solid #ff7a32;
+      box-shadow:
+        0 0 15px #ff522d,
+        inset 0 0 20px rgba(255,80,45,.6);
+    }
+
+    .portal::after {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border-radius: 50%;
+      border: 2px dashed #ffbc52;
+      animation: portalSpin 15s linear infinite reverse;
+    }
+
+    .portal-core {
+      position: relative;
+      z-index: 1;
+      width: 72%;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(57,197,255,.35), transparent 35%),
+        radial-gradient(circle, #28103f 0%, #10091f 65%, #080713 100%);
+      border: 1px solid rgba(168,85,247,.6);
+      box-shadow: 0 0 45px rgba(168,85,247,.3);
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+    }
+
+    .portal-core strong {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      color: var(--white);
+      text-shadow: 0 0 20px var(--purple);
+    }
+
+    .portal-core span {
+      display: block;
+      color: var(--blue);
+      letter-spacing: 3px;
+      font-size: .7rem;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(57,197,255,.24);
+      border-radius: 50%;
+      transform: scale(1.2, .48) rotate(35deg);
+    }
+
+    .orbit-two {
+      transform: scale(1.2, .48) rotate(-35deg);
+      border-color: rgba(168,85,247,.4);
+    }
+
+    @keyframes portalSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Cards */
+
+    .about-grid, .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--purple);
+      box-shadow: 0 10px 35px rgba(113,46,175,.12);
+    }
+
+    .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 13px;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill {
+      text-align: center;
+      padding: 24px 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: .3s;
+    }
+
+    .skill:hover {
+      border-color: var(--blue);
+      transform: translateY(-5px);
+    }
+
+    .skill .symbol {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .skill h3 {
+      font-size: 1.15rem;
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--red);
+      box-shadow: 0 12px 35px rgba(255,48,79,.1);
+    }
+
+    .project-art {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-align: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at center, rgba(168,85,247,.24), transparent 60%),
+        linear-gradient(135deg, #20102f, #100b1f);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-card:nth-child(2) .project-art {
+      background:
+        radial-gradient(circle at center, rgba(57,197,255,.2), transparent 60%),
+        linear-gradient(135deg, #101e36, #100b1f);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      color: var(--blue);
+      border: 1px solid rgba(57,197,255,.3);
+      border-radius: 20px;
+      padding: 4px 11px;
+      font-size: .9rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      color: #ff7b91;
+      font-weight: 700;
+    }
+
+    .project-link:hover {
+      color: white;
+    }
+
+    /* Experience */
+
+    .experience-card {
+      border-left: 3px solid var(--red);
+    }
+
+    .experience-card .role {
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .experience-card .date {
+      color: #d4a4ff;
+      margin-bottom: 12px;
+      font-size: .98rem;
+    }
+
+    /* Contact */
+
+    .contact-box {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      padding: 40px 25px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin: 15px 0 25px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      color: var(--blue);
+      overflow-wrap: anywhere;
+      margin-bottom: 25px;
+      font-size: 1.15rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 1rem;
+    }
+
+    footer span {
+      color: var(--red);
+    }
+
+    /* Scroll reveal */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 20px 5%;
+        background: rgba(8,7,19,.98);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .portal-area {
+        min-height: 330px;
+      }
+
+      .about-grid,
+      .experience-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: .82rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">MARC<span>.MULTIVERSE</span></a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">✦ WELCOME TO MY MULTIVERSE ✦</div>
+
+          <h1>
+            MARC LAWRENCE
+            <span>CASTAÑEDA</span>
+          </h1>
+
+          <h2>Computer Engineering Student</h2>
+
+          <p>
+            Exploring the intersection of technology, creativity, and
+            innovation. I am a fourth-year Computer Engineering student
+            at ICCT Colleges, building projects and developing skills
+            for the world of technology.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+              Explore My Projects
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="portal-area reveal" aria-label="Animated mystical portal">
+          <div class="portal">
+            <div class="portal-core">
+              <div>
+                <strong>MC</strong>
+                <span>ENGINEERING</span>
+              </div>
+            </div>
+          </div>
+          <div class="orbit"></div>
+          <div class="orbit orbit-two"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">ABOUT <span>ME</span></h2>
+        <p class="section-subtitle">
+          Every universe starts with an idea.
+        </p>
+
+        <div class="about-grid">
+          <article class="card reveal">
+            <div class="card-icon">🎓</div>
+            <h3>Education</h3>
+            <p>
+              Fourth-year Computer Engineering student at ICCT Colleges,
+              developing knowledge in programming, computer systems,
+              and engineering projects.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🚀</div>
+            <h3>My Mission</h3>
+            <p>
+              To continuously learn, solve real-world problems, and
+              create practical technology solutions through creativity,
+              persistence, and engineering.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">💻</div>
+            <h3>What I Do</h3>
+            <p>
+              I explore web development, programming, and technology
+              projects while strengthening my technical and
+              problem-solving skills.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🌌</div>
+            <h3>The Multiverse Mindset</h3>
+            <p>
+              Every challenge is an opportunity to discover a new
+              solution. I approach learning with curiosity and a
+              willingness to improve.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">MY <span>POWERS</span></h2>
+        <p class="section-subtitle">
+          The tools in my technology arsenal.
+        </p>
+
+        <div class="skills-grid">
+          <article class="skill reveal">
+            <div class="symbol">HTML</div>
+            <h3>HTML5</h3>
+          </article>
+
+          <article class="skill reveal">
+            <div class="symbol">CSS</div>
+            <h3>CSS3</h3>
+          </article>
+
+          <article class="skill reveal">
+            <div class="symbol">JS</div>
+            <h3>JavaScript</h3>
+          </article>
+
+          <article class="skill reveal">
+            <div class="symbol">CE</div>
+            <h3>Computer Engineering</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title">PROJECT <span>DIMENSIONS</span></h2>
+        <p class="section-subtitle">
+          Engineering ideas brought into reality.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-art" aria-hidden="true">
+              <span>AURAGUARD<br>AI</span>
+            </div>
+
+            <div class="project-content">
+              <h3>AuraGuard AI</h3>
+              <p>
+                An AI-focused engineering project designed around
+                intelligent technology and practical applications.
+                Explore the project's documentation for its full
+                components, design, and implementation details.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Artificial Intelligence</span>
+                <span class="tag">Engineering</span>
+                <span class="tag">Innovation</span>
+              </div>
+
+              <!-- Replace # with your actual project repository URL -->
+              <a class="project-link" href="#contact">
+                Project Information ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-art" aria-hidden="true">
+              <span>E-BARANGAY</span>
+            </div>
+
+            <div class="project-content">
+              <h3>E-Barangay</h3>
+              <p>
+                A digital barangay project focused on bringing
+                community-related information and services into a
+                more accessible digital environment.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Digital Services</span>
+                <span class="tag">Web Project</span>
+                <span class="tag">Community</span>
+              </div>
+
+              <!-- Replace # with your actual project repository URL -->
+              <a class="project-link" href="#contact">
+                Project Information ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title">WORK <span>EXPERIENCE</span></h2>
+        <p class="section-subtitle">
+          Experience beyond the classroom.
+        </p>
+
+        <div class="experience-grid">
+          <article class="card experience-card reveal">
+            <div class="card-icon">📋</div>
+            <h3>Encoder</h3>
+            <p class="role">Healthy Options</p>
+            <p class="date">Work Experience</p>
+            <p>
+              Experience in data encoding and information handling,
+              with an emphasis on accuracy, organization, attention
+              to detail, and completing assigned tasks responsibly.
+            </p>
+          </article>
+
+          <article class="card experience-card reveal">
+            <div class="card-icon">⚙️</div>
+            <h3>Engineering Projects</h3>
+            <p class="role">Academic & Personal Development</p>
+            <p class="date">Computer Engineering</p>
+            <p>
+              Developing technical knowledge through academic work,
+              project planning, research, and hands-on exploration
+              of technology.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">CONTACT <span>ME</span></h2>
+        <p class="section-subtitle">
+          Let's create something from another dimension.
+        </p>
+
+        <div class="contact-box reveal">
+          <div class="card-icon">✉️</div>
+          <h3>Have a project in mind?</h3>
+          <p>
+            Feel free to reach out for project discussions,
+            collaboration, or professional opportunities.
+          </p>
+
+          <a class="contact-email"
+             href="mailto:marclawrencecastaneda9@gmail.com">
+            marclawrencecastaneda9@gmail.com
+          </a>
+
+          <div class="buttons" style="justify-content:center">
+            <a class="btn btn-primary"
+               href="mailto:marclawrencecastaneda9@gmail.com">
+              Send Me an Email
+            </a>
+
+            <a class="btn btn-outline"
+               href="https://github.com/marclawrence9"
+               target="_blank" rel="noopener noreferrer">
+              Visit My GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> Marc Lawrence Castañeda.
+      Crafted in the Multiverse.
+    </p>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Automatically update the footer year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Reveal elements as they enter the viewport
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element =>
+        element.classList.add("visible")
+      );
+    }
+
+    // Animated multiverse stars
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+    let width = 0;
+    let height = 0;
+    let animationFrame;
+
+    function createStars() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = width * pixelRatio;
+      canvas.height = height * pixelRatio;
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+      const count = Math.min(
+        150,
+        Math.floor((width * height) / 9000)
+      );
+
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5 + 0.3,
+        alpha: Math.random() * 0.7 + 0.2,
+        speed: Math.random() * 0.15 + 0.025
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, width, height);
+
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(210, 190, 255, ${star.alpha})`;
+        ctx.fill();
+
+        star.y -= star.speed;
+
+        if (star.y < -3) {
+          star.y = height + 3;
+          star.x = Math.random() * width;
+        }
+      });
+
+      animationFrame = requestAnimationFrame(drawStars);
+    }
+
+    createStars();
+    drawStars();
+
+    window.addEventListener("resize", createStars);
+
+    // Reduce unnecessary animation when the tab is hidden
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrame);
+      } else {
+        cancelAnimationFrame(animationFrame);
+        drawStars();
+      }
+    });
+
+    // Respect users who prefer reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      cancelAnimationFrame(animationFrame);
+      ctx.clearRect(0, 0, width, height);
+    }
+  </script>
+</body>
+</html>
